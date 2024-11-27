@@ -51,18 +51,17 @@ def calculate_trip_duration(df):
 
 
 if __name__ == "__main__":
-    # start_time = datetime.datetime.now()
+    start_time = datetime.datetime.now()
     source_csv = "/mnt/c/Users/natha/code/ParallelPython/data/yellow_tripdata_2015-01.csv"
 
     spark = SparkSession.builder.appName("TaxiPreprocessing").getOrCreate()
 
     taxi = read_csv(spark, source_csv)
 
-    start_time = datetime.datetime.now()
-
     cleaned_taxi = clean_data(taxi)
     cleaned_taxi = convert_dates(cleaned_taxi)
     cleaned_taxi = calculate_trip_duration(cleaned_taxi)
+    cleaned_taxi.show(5)
 
     # If you need to save the output
     # cleaned_taxi.write.csv("output_path", header=True)

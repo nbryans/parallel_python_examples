@@ -35,7 +35,7 @@ def calculate_trip_duration(df):
     return df
 
 if __name__ == "__main__":
-    start_time = datetime.datetime.now()
+
 
     if len(sys.argv) != 2:
         print("Usage: python _serial_preprocess.py <csv_file>")
@@ -47,6 +47,9 @@ if __name__ == "__main__":
     # print(output_path)
 
     taxi = read_csv(source_csv)
+
+    start_time = datetime.datetime.now()
+
     cleaned_taxi = clean_data(taxi)
     cleaned_taxi = convert_dates(cleaned_taxi)
     cleaned_taxi = calculate_trip_duration(cleaned_taxi)
