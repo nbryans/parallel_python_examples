@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
     taxi = read_csv(source_csv)
 
-    start_time = datetime.datetime.now()
+    start_time = datetime.datetime.now()h
 
     # Split the DataFrame into chunks (adjust num_chunks as needed)
     num_chunks = 4
